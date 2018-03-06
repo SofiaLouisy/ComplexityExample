@@ -1,0 +1,12 @@
+Bubble sort (n²) (n!):
+    Compares two elements and swaps if not in order
+    In-place
+
+Insertion sort (n²):
+    The element has to find its proper place in a sorted sub-part
+    In-place
+
+Merge sort (n log n):
+    One of the most respected algorithms. Divides the
+    array into equal halves and combines them into a
+    sorted manner
