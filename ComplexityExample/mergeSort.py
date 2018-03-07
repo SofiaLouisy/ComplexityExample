@@ -1,40 +1,35 @@
-myList = [14,33,27,10,35,19,42,44]
-
-
-def mergeLists(list1,list2):
-    sortedList = []
-    while(list1 != [] and list2 != []):
-        if(list1[0]<list2[0]):
-            sortedList.append(list1[0])
-            list1.pop(0)
-        else:
-            sortedList.append(list2[0])
-            list2.pop(0)
-    
-    while(list1 != []):
-        sortedList.append(list1[0])
-        list1.pop(0)
-    
-    while(list2 != []):
-        sortedList.append(list2[0])
-        list2.pop(0)
-
-    return sortedList
-
-def divideList(myList):
+def mergeSort(myList):
     n = len(myList)
+    
     if(n == 1):
         return myList
     
-    list1 = myList[0:n//2]
-    list2 = myList[n//2:n]
+    list1 = myList[:n//2]
+    list2 = myList[n//2:]
 
-    list1 = divideList(list1)
-    list2 = divideList(list2)
+    mergeSort(list1)
+    mergeSort(list2)
 
-    return(mergeLists(list1,list2))
+    k = 0
+    while(list1 != [] and list2 != []):
+        print(list1)
+        print(list2)
+        if(list1[0]<list2[0]):
+            myList[k] = list1.pop(0)
+            k+=1
+        else:
+            myList[k] = list2.pop(0)
+            k+=1
 
-def mergeSort(myList):
-    return divideList(myList)
+    
+    while(list1 != []):
+        myList[k] = list1.pop(0)
+        k+=1
+    
+    while(list2 != []):
+        myList[k] = list2.pop(0)
+        k+=1
 
-print(mergeSort(myList))
+myList = [14,33,27,10,35,19,42,44]
+mergeSort(myList)
+print(myList)

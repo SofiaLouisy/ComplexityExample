@@ -1,3 +1,5 @@
+# [README]
+
 This project aims to perform two different sorting algorithms:
 * Insert sort
 * Merge sort

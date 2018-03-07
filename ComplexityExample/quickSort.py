@@ -1,7 +1,3 @@
-# This code cannot handle if there are two equal values in the array
-
-myList = [14,33,27,10,35,19,42,44,103,5,12]
-
 def sortFromPivot(aList):
     
     pivot = aList[len(aList)-1]
@@ -29,8 +25,6 @@ def sortFromPivot(aList):
 
     return [leftindex,aList]
 
-
-
 def quickSort(myList):
     if(len(myList) <= 1):
         return myList
@@ -40,11 +34,12 @@ def quickSort(myList):
 
     alist = data[1]
     list1 = alist[0:pivotIndex]
-    list2 = alist[pivotIndex:] #här inkluderar jag pivoten
-
+    list2 = alist[pivotIndex+1:] #här inkluderar jag pivoten
+    pivot = alist[pivotIndex]
     list1 = quickSort(list1)
     list2 = quickSort(list2)
 
-    return list1+list2
+    return list1+[pivot]+list2
 
+myList = [14,33,27,10,35,19,42,44,103,5,12,14]
 print(quickSort(myList))
